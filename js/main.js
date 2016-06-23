@@ -13,7 +13,8 @@ require.config({
      //   'prettify': '../lib/google-code-prettify/prettify',
         'CountryDetailCtrl': 'controller/country_detail',
         'CountryListCtrl': 'controller/home_ctrl',
-        'CountryAddCtrl' : 'controller/country_add'
+        'CountryAddCtrl' : 'controller/country_add',
+        'myService'      : 'services/myService'
 
         
     },
