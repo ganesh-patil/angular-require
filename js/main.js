@@ -12,7 +12,8 @@ require.config({
      //   'ui-bootstrap': '../lib/angular-ui-bootstrap/ui-bootstrap-tpls',
      //   'prettify': '../lib/google-code-prettify/prettify',
         'CountryDetailCtrl': 'controller/country_detail',
-        'CountryListCtrl': 'controller/home_ctrl'
+        'CountryListCtrl': 'controller/home_ctrl',
+        'CountryAddCtrl' : 'controller/country_add'
 
         
     },

@@ -10,6 +10,31 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
             controller: 'CountryDetailCtrl',
 
           }))
+        .when('/:country/:activity', angularAMD.route({
+           templateUrl: function (rp) { 
+                     return 'views/' + rp.country + '/' + rp.activity + '.html'; },
+             resolve: {
+        load: ['$q', '$rootScope', '$location', 
+            function ($q, $rootScope, $location) {
+                
+                 var path = $location.path();
+                 var parsePath = path.split("/");
+                 var parentPath = parsePath[1];
+                 var controllerName = parsePath[2];
+                 var loadController = "controller/" + parentPath + "/" + 
+                                       controllerName + "Controller";
+
+                 var deferred = $q.defer();
+                 require([loadController], function () {
+                        $rootScope.$apply(function () {
+                        deferred.resolve();
+                 });
+            });
+            return deferred.promise;
+            }]
+        }
+
+          }))
     });
     return angularAMD.bootstrap(app);
 });
